@@ -63,7 +63,55 @@ public function crear_aseguradoras() {
 }
 
 public function clientes() {
+
  return view('seguros::clientes');
+}
+
+public function dashboard() {
+
+   if(!$this->tenantName){
+ $polizas_totales = Contrato::count();
+
+ }else{
+ $polizas_totales = \DigitalsiteSaaS\Seguros\Tenant\Contrato::count(); 
+ $polizas_colectiva = \DigitalsiteSaaS\Seguros\Tenant\Contrato::where('poliza','=',1)->count();
+ $polizas_externa = \DigitalsiteSaaS\Seguros\Tenant\Contrato::where('poliza','=',2)->count();
+ $concesinarioweb = \DigitalsiteSaaS\Seguros\Tenant\Concesionario::all();
+ $concesionarios = \DigitalsiteSaaS\Seguros\Tenant\Contrato::select('concesionario')
+     ->selectRaw('count(concesionario) as sum')
+     ->groupBy('concesionario')
+     ->orderBy('sum', 'desc')
+     ->get();
+
+  $aseguradoraweb = \DigitalsiteSaaS\Seguros\Tenant\Aseguradora::all();
+ $aseguradoras = \DigitalsiteSaaS\Seguros\Tenant\Contrato::select('aseguradora')
+     ->selectRaw('count(aseguradora) as sum')
+     ->groupBy('aseguradora') 
+     ->orderBy('sum', 'desc')
+     ->get();
+ }
+
+ return view('seguros::dashboard')->with('polizas_totales', $polizas_totales)->with('polizas_colectiva', $polizas_colectiva)->with('polizas_externa', $polizas_externa)->with('concesionarios', $concesionarios)->with('concesinarioweb', $concesinarioweb)->with('aseguradoras', $aseguradoras)->with('aseguradoraweb', $aseguradoraweb);
+}
+
+
+public function aseguradora() {
+   if(!$this->tenantName){
+ $aseguradora = Aseguradora::all();
+ }else{
+ $aseguradora = \DigitalsiteSaaS\Seguros\Tenant\Aseguradora::all(); 
+ }
+ return view('seguros::aseguradora')->with('aseguradora', $aseguradora);;
+}
+
+
+public function concesionarios() {
+   if(!$this->tenantName){
+ $concesionario = Concesionario::all();
+ }else{
+ $concesionario = \DigitalsiteSaaS\Seguros\Tenant\Concesionario::all(); 
+ }
+ return view('seguros::concesionario')->with('concesionario', $concesionario);;
 }
 
 public function contratos() {
@@ -100,6 +148,7 @@ public function crear(){
  $contrato->aseguradora = Input::get('aseguradora');
  $contrato->prima = Input::get('prima');
  $contrato->observaciones = Input::get('observaciones');
+ $contrato->email = Input::get('email');
  $contrato->exepcion = Input::get('exepcion');
  $contrato->save();
  return Redirect('seguros/contratos')->with('status', 'ok_create');
@@ -127,7 +176,7 @@ public function crearaseguradora(){
  $aseguradora->aseguradora = Input::get('aseguradora');
  
  $aseguradora->save();
- return Redirect('seguros/concesionarios')->with('status', 'ok_create');
+ return Redirect('seguros/aseguradoras')->with('status', 'ok_create');
 } 
 
 }

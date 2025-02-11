@@ -3,6 +3,8 @@ Route::get('seguros/dashboard', function () {
    return View::make('seguros::index');
 });
 
+Route::get('seguros/dashboard', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@dashboard');
+
 Route::get('seguros/clientes', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@clientes');
 Route::get('seguros/creaclientes', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@crear_clientes');
 

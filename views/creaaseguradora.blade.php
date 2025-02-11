@@ -4,7 +4,7 @@
 
                     <div class="col-lg-12 mt-5">
                         <div class="card card-outline-info">
-                            <div class="card-header">
+                            <div class="card-header" style="background: black;">
                                 <h4 class="m-b-0 text-white">Crear Aseguradora</h4>
                             </div>
                             <div class="card-body">
@@ -27,7 +27,7 @@
                                         
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Crear Aseguradora</button>
                                         <button type="button" class="btn btn-inverse">Cancel</button>
                                     </div>
                                 </form>

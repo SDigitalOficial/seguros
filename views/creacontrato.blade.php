@@ -5,13 +5,13 @@
 
                     <div class="col-lg-12 mt-5">
                         <div class="card card-outline-info">
-                            <div class="card-header">
+                            <div class="card-header" style="background: black;">
                                 <h4 class="m-b-0 text-white">Crear Contrato</h4>
                             </div>
                             <div class="card-body">
                                   {{ Form::open(array('method' => 'POST','class' => 'form-horizontal','id' => 'defaultForm1', 'url' => array('seguros/crear-contratos'))) }}
                                     <div class="form-body">
-                                        <h3 class="card-title">Person Info</h3>
+                                        <h3 class="card-title">Información Regsitro</h3>
                                         <hr>
                                         <div class="row p-t-20">
                                             <div class="col-md-6">
@@ -51,13 +51,19 @@
                                                      </div>
                                             </div>
                                             
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Email</label>
+                                                    <input type="text" id="firstName" class="form-control" placeholder="Ingrese Nombres" name="email">
+                                                     </div>
+                                            </div>
                                         </div>
                                         <!--/row-->
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Fecha Inicio</label>
-                                                    <input type="date" class="form-control" name="inicio" placeholder="dd/mm/yyyy">
+                                                    <input type="datetime-local" class="form-control" name="inicio" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </div>
 
@@ -72,7 +78,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Tipo Póliza</label>
-                                                    <select class="form-control custom-select" name="poliza">
+
+                                                    <select class="form-control custom-select" name="poliza"> <option value="" disabled selected>Seleccione Tipo Póliza</option>
                                                         <option value="1">Colectiva</option>
                                                         <option value="2">Externa</option>
                                                     </select>
@@ -137,13 +144,15 @@
                                         
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Crear Registro</button>
                                         <button type="button" class="btn btn-inverse">Cancel</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+
+                    
           
  {{ Form::close() }}
 @stop
