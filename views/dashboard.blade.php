@@ -2,7 +2,8 @@
 
 @section('ContenidoSite-01')
 
-<div class="card-group" mt-5>
+<div class="container pt-5">
+<div class="card-group">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -55,7 +56,7 @@
                     <!-- Column -->
                     
                 </div>
-
+</div> 
 
          <div class="container">
              <div class="row">

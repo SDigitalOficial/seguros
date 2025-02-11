@@ -3,7 +3,7 @@
 @section('ContenidoSite-01')
 
 
-                    <div class="col-lg-12 mt-5">
+                    <div class="col-lg-12 pt-5">
                         <div class="card card-outline-info">
                             <div class="card-header" style="background: black;">
                                 <h4 class="m-b-0 text-white">Crear Contrato</h4>

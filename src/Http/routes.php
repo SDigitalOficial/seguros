@@ -26,4 +26,6 @@ Route::get('seguros/creaaseguradoras', 'DigitalsiteSaaS\Seguros\Http\UsuarioCont
 Route::post('seguros/crear-aseguradoras', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@crearaseguradora');
 
 
+Route::get('seguros/clientes/{id}', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@actualizacion_datos');
+
 Route::get('pr/ofertas', 'DigitalsiteSaaS\Seguros\Http\UsuarioController@ofertas');

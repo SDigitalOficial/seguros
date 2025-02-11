@@ -130,6 +130,16 @@ public function crear_concesionarios() {
  return view('seguros::crear_concesionario');
 }
 
+public function actualizacion_datos($id) {
+ if(!$this->tenantName){
+ $actualizacion = Contrato::all();
+ }else{
+ $actualizacion = \DigitalsiteSaaS\Seguros\Tenant\Contrato::where('contrato', '=', $id)->get(); 
+ }
+ return view('seguros::datos')->with('actualizacion', $actualizacion);
+}
+
+
 public function crear(){ 
  if(!$this->tenantName){
  $contrato = new Contrato;
