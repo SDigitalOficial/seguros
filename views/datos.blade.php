@@ -141,16 +141,19 @@
 
 <p><label for="avatar">Carátula Póliza:</label>
 <br><br>
-<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" /></p><br>
+<form action="#">
+<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" required /></p><br>
 
 <p><label for="avatar">Certificado Aseguradora:</label>
 <br><br>
-<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" /></p><br>
+<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" required /></p><br>
 
 <p><label for="avatar">Certificado de Pago</label>
 <br><br>
-<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" /></p><br>
-
+<input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" required /></p><br>
+<br>
+<button type="submit" class="" style="background: green;color:#fff;padding: 20px;border: none;">Enviar Documentos</button><br><br>
+</form>
 </p>Si tienes alguna duda, no dudes en contactarnos.</p><br>
 
 </p>Saludos,</p>
